@@ -44,37 +44,23 @@ let party = [
 ];
 
 let enemies = [
-  { avantar: "", isEnemy: true, damageTaken: 0, possibleAC: 0, iniciative: 0 },
-  { avantar: "", isEnemy: true, damageTaken: 0, possibleAC: 0, iniciative: 0 },
-  { avantar: "", isEnemy: true, damageTaken: 0, possibleAC: 0, iniciative: 0 },
-  { avantar: "", isEnemy: true, damageTaken: 0, possibleAC: 0, iniciative: 0 }
+  { avatar: "", isEnemy: true, damageTaken: 0, possibleAC: 0, iniciative: 0 },
+  { avatar: "", isEnemy: true, damageTaken: 0, possibleAC: 0, iniciative: 0 },
+  { avatar: "", isEnemy: true, damageTaken: 0, possibleAC: 0, iniciative: 0 },
+  { avatar: "", isEnemy: true, damageTaken: 0, possibleAC: 0, iniciative: 0 }
 ];
 
 let partyUListElement = document.querySelector(".party-list");
 
 function createCharacterElement(character) {
-  /* 
-<li class="character">
-    <div class="character-container">
-        <div class="character-details">
-            <img src="#" alt="#" />
-            <p>name</p>
-        </div>
-        <div class="initiative-container">
-            <span>1</span>
-        </div>
-    </div>
-</li>
-*/
-
   let liElement = document.createElement("li");
-  liElement.classLis.add("character");
+  liElement.classList.add("character");
 
   let charContainerElement = document.createElement("div");
   charContainerElement.classList.add("character-container");
 
-  let charContainerElement = document.createElement("div");
-  charContainerElement.classList.add("character-details");
+  let charDetailsElement = document.createElement("div");
+  charDetailsElement.classList.add("character-details");
 
   let avatarElement = document.createElement("img");
   let nameElement = document.createElement("p");
@@ -83,4 +69,23 @@ function createCharacterElement(character) {
   initiativeContainerElement.classList.add("initiative-container");
 
   let initiativeCounterElement = document.createElement("span");
+  let initiativeValue = document.createTextNode(`${character.iniciative}`);
+  initiativeCounterElement.appendChild(initiativeValue);
+
+  initiativeContainerElement.appendChild(initiativeCounterElement);
+
+  let nameValue = document.createTextNode(`${character.name}`);
+  nameElement.appendChild(nameValue);
+
+  avatarElement.src = `${character.avatar}`;
+
+  charDetailsElement.appendChild(avatarElement);
+  charDetailsElement.appendChild(nameElement);
+
+  charContainerElement.appendChild(charDetailsElement);
+  charContainerElement.appendChild(initiativeContainerElement);
+
+  liElement.appendChild(charContainerElement);
+
+  return liElement;
 }
