@@ -3,7 +3,7 @@ console.log("connected");
 let party = [
   {
     name: "cenas",
-    avatar: "",
+    avatar: "#",
     isEnemy: false,
     hp: 10,
     damageDone: 0,
@@ -11,7 +11,7 @@ let party = [
   },
   {
     name: "cenas",
-    avatar: "",
+    avatar: "#",
     isEnemy: false,
     hp: 10,
     damageDone: 0,
@@ -19,7 +19,7 @@ let party = [
   },
   {
     name: "cenas",
-    avatar: "",
+    avatar: "#",
     isEnemy: false,
     hp: 10,
     damageDone: 0,
@@ -27,7 +27,7 @@ let party = [
   },
   {
     name: "cenas",
-    avatar: "",
+    avatar: "#",
     isEnemy: false,
     hp: 10,
     damageDone: 0,
@@ -35,7 +35,7 @@ let party = [
   },
   {
     name: "cenas",
-    avatar: "",
+    avatar: "#",
     isEnemy: false,
     hp: 10,
     damageDone: 0,
@@ -44,13 +44,39 @@ let party = [
 ];
 
 let enemies = [
-  { avatar: "", isEnemy: true, damageTaken: 0, possibleAC: 0, iniciative: 0 },
-  { avatar: "", isEnemy: true, damageTaken: 0, possibleAC: 0, iniciative: 0 },
-  { avatar: "", isEnemy: true, damageTaken: 0, possibleAC: 0, iniciative: 0 },
-  { avatar: "", isEnemy: true, damageTaken: 0, possibleAC: 0, iniciative: 0 }
+  {
+    avatar: "#",
+    name: "cenas",
+    isEnemy: true,
+    damageTaken: 0,
+    possibleAC: 0,
+    iniciative: 0
+  },
+  {
+    avatar: "#",
+    name: "cenas",
+    isEnemy: true,
+    damageTaken: 0,
+    possibleAC: 0,
+    iniciative: 0
+  },
+  {
+    avatar: "#",
+    name: "cenas",
+    isEnemy: true,
+    damageTaken: 0,
+    possibleAC: 0,
+    iniciative: 0
+  },
+  {
+    avatar: "#",
+    name: "cenas",
+    isEnemy: true,
+    damageTaken: 0,
+    possibleAC: 0,
+    iniciative: 0
+  }
 ];
-
-let partyUListElement = document.querySelector(".party-list");
 
 function createCharacterElement(character) {
   let liElement = document.createElement("li");
@@ -89,3 +115,22 @@ function createCharacterElement(character) {
 
   return liElement;
 }
+
+function addPartyList() {
+  let partyUListElement = document.querySelector(".party-list");
+
+  party.forEach(function(character) {
+    partyUListElement.appendChild(createCharacterElement(character));
+  });
+}
+
+function addEnemyList() {
+  let enemyUListElement = document.querySelector(".enemies-list");
+
+  enemies.forEach(function(enemies) {
+    enemyUListElement.appendChild(createCharacterElement(enemies));
+  });
+}
+
+addPartyList();
+addEnemyList();
