@@ -146,6 +146,7 @@ function handleEventListeners() {
     if (event.target.className === "initiative-counter") {
       event.target.classList.add("hide");
       event.target.nextElementSibling.classList.remove("hide");
+      event.target.nextElementSibling.focus();
     }
   });
 
@@ -154,6 +155,7 @@ function handleEventListeners() {
     if (event.target.className === "initiative-counter") {
       event.target.classList.add("hide");
       event.target.nextElementSibling.classList.remove("hide");
+      event.target.nextElementSibling.focus();
     }
   });
 
@@ -162,18 +164,20 @@ function handleEventListeners() {
       let key = event.which || event.keyCode;
       let inputElement = event.target;
 
-      if (key === 13) {
-        // on enter get the input value
-        let inputValue = inputElement.value === "" ? 0 : inputElement.value;
-        let spanElement = inputElement.previousSibling;
+      if (key !== 13) return;
 
-        // add the value in the span
-        spanElement.innerHTML = inputValue;
+      // on enter get the input value
+      let inputValue = inputElement.value === "" ? 0 : inputElement.value;
+      let spanElement = inputElement.previousSibling;
 
-        // toggle
-        inputElement.classList.add("hide");
-        spanElement.classList.remove("hide");
-      }
+      // add the value in the span
+      spanElement.innerHTML = inputValue;
+
+      // toggle
+      inputElement.classList.add("hide");
+      spanElement.classList.remove("hide");
+
+      enemies[spanElement.dataset.indexNumber].iniciative = inputValue;
     }
   });
 
@@ -182,18 +186,20 @@ function handleEventListeners() {
       let key = event.which || event.keyCode;
       let inputElement = event.target;
 
-      if (key === 13) {
-        // on enter get the input value
-        let inputValue = inputElement.value === "" ? 0 : inputElement.value;
-        let spanElement = inputElement.previousSibling;
+      if (key !== 13) return;
 
-        // add the value in the span
-        spanElement.innerHTML = inputValue;
+      // on enter get the input value
+      let inputValue = inputElement.value === "" ? 0 : inputElement.value;
+      let spanElement = inputElement.previousSibling;
 
-        // toggle
-        inputElement.classList.add("hide");
-        spanElement.classList.remove("hide");
-      }
+      // add the value in the span
+      spanElement.innerHTML = inputValue;
+
+      // toggle
+      inputElement.classList.add("hide");
+      spanElement.classList.remove("hide");
+
+      party[spanElement.dataset.indexNumber].iniciative = inputValue;
     }
   });
 }
