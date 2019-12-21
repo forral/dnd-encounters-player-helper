@@ -1,3 +1,53 @@
 .hide {
   visibility: hidden;
 }
+
+.initiative-setup ul {
+  list-style: none;
+}
+
+.character {
+  border-bottom: 1px solid lightgrey;
+  padding: 10px;
+}
+
+.character-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.character p {
+  margin: 0;
+}
+
+.character-details {
+  margin: 0 10px 0 10px;
+}
+
+.character-init {
+  text-align: center;
+}
+
+.init-container {
+  border: 1px solid grey;
+  padding: 5px 10px 5px 10px;
+}
+
+.init-container p,
+input {
+  width: 25px;
+  height: 25px;
+}
+
+.init-container h5 {
+  padding-bottom: 5px;
+}
+
+.init-container p,
+h5 {
+  margin: 0 auto;
+}
+
+.init-container input {
+  display: none;
+}

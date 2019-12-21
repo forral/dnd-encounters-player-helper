@@ -8,7 +8,7 @@
     <title>DnD Encounters - Player Helper</title>
   </head>
   <body>
-    <div class="iniciative-setup">
+    <div class="initiative-setup">
       <div class="party-container">
         <h2>Party</h2>
         <ul class="party-list"></ul>
@@ -20,10 +20,31 @@
             <button>add</button>
           </span>
         </h2>
-        <ul class="enemies-list"></ul>
+        <ul class="enemies-list">
+          <li class="character">
+            <div class="character-container">
+              <div class="character-avatar">
+                <img src="https://via.placeholder.com/50" alt="" />
+              </div>
+              <div class="character-details">
+                <p>Fixian Wunded</p>
+                <p>Lvl 2 | Human | Cleric / Life Domain</p>
+              </div>
+              <div class="character-init">
+                <div class="init-container">
+                  <h5>initiative</h5>
+                  <p>0</p>
+                  <input type="text" />
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
       <button>ok</button>
     </div>
+    <script src="data.js"></script>
+    <script src="helpers.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
