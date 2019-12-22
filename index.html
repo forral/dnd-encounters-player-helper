@@ -13,7 +13,7 @@
         <h2>
           Party
           <span>
-            <button class="modal-btn">+</button>
+            <button class="modal-btn party-btn">+</button>
           </span>
         </h2>
         <ul class="party-list"></ul>
@@ -22,7 +22,7 @@
         <h2>
           Enemies
           <span>
-            <button class="modal-btn">+</button>
+            <button class="modal-btn enemy-btn">+</button>
           </span>
         </h2>
         <ul class="enemies-list"></ul>
@@ -35,9 +35,24 @@
       <!-- Modal content -->
       <div class="modal-content">
         <span class="modal-close">&times;</span>
-        <p>Some text in the Modal..</p>
+        <h2>Add a <span class="modal-type-char"></span></h2>
+
+        <!-- build form here -->
+
+        <form>
+          <ul>
+            <li>
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="user_name" />
+            </li>
+          </ul>
+        </form>
+
+        <button>ok</button>
       </div>
     </div>
+    <!-- end The Modal -->
+
     <script src="modal.js"></script>
     <script src="data.js"></script>
     <script src="helpers.js"></script>
