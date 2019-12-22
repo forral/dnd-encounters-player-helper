@@ -27,7 +27,7 @@ let helperModule = (function() {
     return element;
   }
 
-  function characterContainerElement(character) {
+  function characterContainerElement(character, index) {
     const { name, avatar, level, race, classType } = character;
 
     let characterContainerElement = createElementWithCSSClass(
@@ -38,7 +38,7 @@ let helperModule = (function() {
     let charElements = [
       creasteCharacterAvatarElement(character.avatar),
       createCharacterDetailsElement(name, level, race, classType),
-      createCharacterInitElement(avatar)
+      createCharacterInitElement(index)
     ];
 
     let characterElement = createElementWithCSSClass("li", "character");
@@ -76,7 +76,7 @@ let helperModule = (function() {
     ]);
   }
 
-  function createCharacterInitElement() {
+  function createCharacterInitElement(index) {
     // 1. SETUP
     // Create main container
     let characterInitElement = createElementWithCSSClass(
@@ -93,8 +93,16 @@ let helperModule = (function() {
     // Create title
     let titleElement = createElementWithText("h5", "initiative");
     // Create init value and input
-    let initValueElement = createElementWithText("p", "0");
-    let initInputElement = document.createElement("input");
+    let initValueElement = createElementWithText(
+      "p",
+      "0",
+      "initiative-counter"
+    );
+    initValueElement.dataset.indexNumber = index;
+
+    let initInputElement = createElementWithCSSClass("input", "hide");
+    initInputElement.classList.add("initiative-input");
+    initInputElement.type = "text";
 
     // 2. MOUNT
     let mountedInitContainerElement = appendChildren(initContainerElement, [

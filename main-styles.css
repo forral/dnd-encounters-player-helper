@@ -1,5 +1,5 @@
 .hide {
-  visibility: hidden;
+  display: none;
 }
 
 .initiative-setup ul {
@@ -48,6 +48,6 @@ h5 {
   margin: 0 auto;
 }
 
-.init-container input {
+/* .init-container input {
   display: none;
-}
+} */
