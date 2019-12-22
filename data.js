@@ -8,7 +8,7 @@ let PARTY = [
     classType: "Cleric / Life Domain",
     hp: 10,
     damageDone: 0,
-    iniciative: 0
+    initiative: 0
   },
   {
     name: "Fixian Wunded",
@@ -19,7 +19,7 @@ let PARTY = [
     classType: "Cleric / Life Domain",
     hp: 10,
     damageDone: 0,
-    iniciative: 0
+    initiative: 0
   },
   {
     name: "Fixian Wunded",
@@ -30,7 +30,7 @@ let PARTY = [
     classType: "Cleric / Life Domain",
     hp: 10,
     damageDone: 0,
-    iniciative: 0
+    initiative: 0
   },
   {
     name: "Fixian Wunded",
@@ -41,7 +41,7 @@ let PARTY = [
     classType: "Cleric / Life Domain",
     hp: 10,
     damageDone: 0,
-    iniciative: 0
+    initiative: 0
   },
   {
     name: "Fixian Wunded",
@@ -52,39 +52,51 @@ let PARTY = [
     classType: "Cleric / Life Domain",
     hp: 10,
     damageDone: 0,
-    iniciative: 0
+    initiative: 0
   }
 ];
 
 let ENEMIES = [
   {
-    avatar: "https://via.placeholder.com/50",
     name: "cenas",
+    avatar: "https://via.placeholder.com/50",
     isEnemy: true,
+    race: "goblin",
+    level: 1,
+    classType: "undead",
     damageTaken: 0,
     possibleAC: 0,
     iniciative: 0
   },
   {
-    avatar: "https://via.placeholder.com/50",
     name: "cenas",
+    avatar: "https://via.placeholder.com/50",
     isEnemy: true,
+    race: "goblin",
+    level: 1,
+    classType: "undead",
     damageTaken: 0,
     possibleAC: 0,
     iniciative: 0
   },
   {
-    avatar: "https://via.placeholder.com/50",
     name: "cenas",
+    avatar: "https://via.placeholder.com/50",
     isEnemy: true,
+    race: "goblin",
+    level: 1,
+    classType: "undead",
     damageTaken: 0,
     possibleAC: 0,
     iniciative: 0
   },
   {
-    avatar: "https://via.placeholder.com/50",
     name: "cenas",
+    avatar: "https://via.placeholder.com/50",
     isEnemy: true,
+    race: "goblin",
+    level: 1,
+    classType: "undead",
     damageTaken: 0,
     possibleAC: 0,
     iniciative: 0

@@ -10,39 +10,35 @@
   <body>
     <div class="initiative-setup">
       <div class="party-container">
-        <h2>Party</h2>
+        <h2>
+          Party
+          <span>
+            <button class="modal-btn">+</button>
+          </span>
+        </h2>
         <ul class="party-list"></ul>
       </div>
       <div class="enemies-container">
         <h2>
           Enemies
           <span>
-            <button>add</button>
+            <button class="modal-btn">+</button>
           </span>
         </h2>
-        <ul class="enemies-list">
-          <li class="character">
-            <div class="character-container">
-              <div class="character-avatar">
-                <img src="https://via.placeholder.com/50" alt="" />
-              </div>
-              <div class="character-details">
-                <p>Fixian Wunded</p>
-                <p>Lvl 2 | Human | Cleric / Life Domain</p>
-              </div>
-              <div class="character-init">
-                <div class="init-container">
-                  <h5>initiative</h5>
-                  <p>0</p>
-                  <input type="text" />
-                </div>
-              </div>
-            </div>
-          </li>
-        </ul>
+        <ul class="enemies-list"></ul>
       </div>
-      <button>ok</button>
     </div>
+    <button>ok</button>
+
+    <!-- The Modal -->
+    <div class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <p>Some text in the Modal..</p>
+      </div>
+    </div>
+    <script src="modal.js"></script>
     <script src="data.js"></script>
     <script src="helpers.js"></script>
     <script src="script.js"></script>
