@@ -102,3 +102,31 @@ let ENEMIES = [
     iniciative: 0
   }
 ];
+
+const RACES = [
+  "Dragonborn",
+  "Dwarf",
+  "Eladrin",
+  "Elf",
+  "Gnome",
+  "Half-elf",
+  "Half-orc",
+  "Halfling",
+  "Human",
+  "Tiefling"
+];
+
+const CLASSES = [
+  "Barbarian",
+  "Bard",
+  "Cleric",
+  "Druid",
+  "Fighter",
+  "Monk",
+  "Paladin",
+  "Ranger",
+  "Rogue",
+  "Sorcerer",
+  "Warlock",
+  "Wizard"
+];

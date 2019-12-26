@@ -49,6 +49,18 @@ let helperModule = (function() {
     return characterElement;
   }
 
+  function createSelectionElement(list) {
+    let selectionElement = document.createElement("select");
+
+    list.forEach(function(item) {
+      let optionElement = createElementWithText("option", item);
+      optionElement.value = item;
+      selectionElement.appendChild(optionElement);
+    });
+
+    return selectionElement;
+  }
+
   function creasteCharacterAvatarElement(imgSrc) {
     let avatarContainer = createElementWithCSSClass("div", "character-avatar");
 
@@ -116,6 +128,7 @@ let helperModule = (function() {
   }
 
   return {
-    characterContainerElement: characterContainerElement
+    characterContainerElement: characterContainerElement,
+    createSelectionElement: createSelectionElement
   };
 })();
