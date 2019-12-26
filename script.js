@@ -48,6 +48,7 @@ function toggleInitiative(element, array) {
 function handleEventListeners() {
   const partyListContainer = document.querySelector(".party-container");
   const enemyListContainer = document.querySelector(".enemies-container");
+  const tablinks = document.querySelectorAll(".tablinks");
 
   // Toggle span to input party list
   partyListContainer.addEventListener("dblclick", function(event) {
@@ -69,27 +70,29 @@ function handleEventListeners() {
     if (event.target.className !== "initiative-input") return;
     toggleInitiative(event, ENEMIES);
   });
-}
 
-function openCity(evt, cityName) {
-  // Declare all variables
-  var i, tabcontent, tablinks;
+  tablinks.forEach(function(element) {
+    element.addEventListener("click", function(event) {
+      tablinks.forEach(function(element) {
+        element.classList.remove("active");
+      });
 
-  // Get all elements with class="tabcontent" and hide them
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
+      let tabPartyContentElement = document.querySelector("#party-tab-content");
+      let tabEnemyContentElement = document.querySelector("#enemy-tab-content");
 
-  // Get all elements with class="tablinks" and remove the class "active"
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
+      if (event.target.dataset.title === "party") {
+        tabPartyContentElement.classList.replace("hide", "show");
+        tabEnemyContentElement.classList.replace("show", "hide");
+      }
 
-  // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
+      if (event.target.dataset.title === "enemy") {
+        tabPartyContentElement.classList.replace("show", "hide");
+        tabEnemyContentElement.classList.replace("hide", "show");
+      }
+
+      event.target.classList.add("active");
+    });
+  });
 }
 
 addPartyList();
