@@ -51,6 +51,12 @@ function addPartyForm() {
 	modalContentElement.appendChild(form);
 }
 
+function addEnemyForm() {
+	const modalContentElement = document.querySelector("#enemy-tab-content");
+	const form = helperModule.templateAddCharacterForm(FORM_CONFIG_ENEMIES);
+	modalContentElement.appendChild(form);
+}
+
 function handleEventListeners() {
 	const partyListContainer = document.querySelector(".party-container");
 	const enemyListContainer = document.querySelector(".enemies-container");
@@ -108,4 +114,5 @@ function handleEventListeners() {
 addPartyList();
 addEnemyList();
 addPartyForm();
+addEnemyForm();
 handleEventListeners();

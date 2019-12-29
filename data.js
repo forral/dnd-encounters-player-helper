@@ -111,6 +111,11 @@ const FORM_CONFIG_PARTY = [
 	{ name: "level", element: "input", type: "number" }
 ];
 
+const FORM_CONFIG_ENEMIES = [
+	{ name: "name", element: "input", type: "text" },
+	{ name: "monster", element: "select", type: "monsters" }
+];
+
 const DND_DB = {
 	races: [
 		"Dragonborn",
