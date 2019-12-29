@@ -1,130 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="main-styles.css" />
-    <title>DnD Encounters - Player Helper</title>
-  </head>
-  <body>
-    <div class="initiative-setup">
-      <div class="party-container">
-        <h2>
-          Party
-          <span>
-            <button class="modal-btn party-btn">+</button>
-          </span>
-        </h2>
-        <ul class="party-list"></ul>
-      </div>
-      <div class="enemies-container">
-        <h2>
-          Enemies
-          <span>
-            <button class="modal-btn enemy-btn">+</button>
-          </span>
-        </h2>
-        <ul class="enemies-list"></ul>
-      </div>
-    </div>
-    <button>ok</button>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="main-styles.css" />
+		<title>DnD Encounters - Player Helper</title>
+	</head>
+	<body>
+		<div class="initiative-setup">
+			<div class="party-container">
+				<h2>
+					Party
+					<span>
+						<button class="modal-btn party-btn">+</button>
+					</span>
+				</h2>
+				<ul class="party-list"></ul>
+			</div>
+			<div class="enemies-container">
+				<h2>
+					Enemies
+					<span>
+						<button class="modal-btn enemy-btn">+</button>
+					</span>
+				</h2>
+				<ul class="enemies-list"></ul>
+			</div>
+		</div>
+		<button>ok</button>
 
-    <!-- The Modal -->
-    <div class="modal">
-      <!-- Modal content -->
-      <div class="modal-content">
-        <span class="modal-close">&times;</span>
-        <h2>Add a <span class="modal-type-char"></span></h2>
+		<!-- The Modal -->
+		<div class="modal">
+			<!-- Modal content -->
+			<div class="modal-content">
+				<span class="modal-close">&times;</span>
+				<h2>Add a <span class="modal-type-char"></span></h2>
 
-        <!-- Modal Tab -->
-        <div class="tab">
-          <button class="tablinks" data-title="party">
-            Party
-          </button>
-          <button class="tablinks" data-title="enemy">
-            Enemy
-          </button>
-        </div>
+				<!-- Modal Tab -->
+				<div class="tab">
+					<button class="tablinks" data-title="party">
+						Party
+					</button>
+					<button class="tablinks" data-title="enemy">
+						Enemy
+					</button>
+				</div>
 
-        <!-- Tab content -->
-        <div id="party-tab-content" class="tabcontent hide">
-          <h3>Party Element</h3>
-          <form>
-            <ul>
-              <li>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="user_name" />
-              </li>
-              <li>
-                <label for="race">Class:</label>
-                <select>
-                  <option value="volvo">Volvo</option>
-                  <option value="saab">Saab</option>
-                  <option value="mercedes">Mercedes</option>
-                  <option value="audi">Audi</option>
-                </select>
-              </li>
-              <li>
-                <label for="race">Race:</label>
-                <select>
-                  <option value="volvo">Volvo</option>
-                  <option value="saab">Saab</option>
-                  <option value="mercedes">Mercedes</option>
-                  <option value="audi">Audi</option>
-                </select>
-              </li>
-              <li>
-                <label for="hp">hp:</label>
-                <input type="number" id="hp" name="hp" />
-              </li>
-            </ul>
-          </form>
-        </div>
+				<!-- Tab content -->
+				<div id="party-tab-content" class="tabcontent hide">
+					<h3>Party Element</h3>
+					<!-- <form>
+						<ul>
+							<li>
+								<label for="name">Name:</label>
+								<input type="text" id="name" name="name" />
+							</li>
+							<li>
+								<label for="class">Class:</label>
+								<select>
+									<option value="volvo">Volvo</option>
+									<option value="saab">Saab</option>
+									<option value="mercedes">Mercedes</option>
+									<option value="audi">Audi</option>
+								</select>
+							</li>
+							<li>
+								<label for="race">Race:</label>
+								<select>
+									<option value="volvo">Volvo</option>
+									<option value="saab">Saab</option>
+									<option value="mercedes">Mercedes</option>
+									<option value="audi">Audi</option>
+								</select>
+							</li>
+							<li>
+								<label for="hp">hp:</label>
+								<input type="number" id="hp" name="hp" />
+							</li>
+							<li>
+								<label for="level">Level:</label>
+								<input type="number" id="level" name="level" />
+							</li>
+						</ul>
+					</form> -->
+				</div>
 
-        <div id="enemy-tab-content" class="tabcontent hide">
-          <h3>Enemy Element</h3>
-          <form>
-            <ul>
-              <li>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="user_name" />
-              </li>
-              <li>
-                <label for="race">Class:</label>
-                <select>
-                  <option value="volvo">Volvo</option>
-                  <option value="saab">Saab</option>
-                  <option value="mercedes">Mercedes</option>
-                  <option value="audi">Audi</option>
-                </select>
-              </li>
-              <li>
-                <label for="race">Race:</label>
-                <select>
-                  <option value="volvo">Volvo</option>
-                  <option value="saab">Saab</option>
-                  <option value="mercedes">Mercedes</option>
-                  <option value="audi">Audi</option>
-                </select>
-              </li>
-              <li>
-                <label for="hp">hp:</label>
-                <input type="number" id="hp" name="hp" />
-              </li>
-            </ul>
-          </form>
-        </div>
-        <!-- end Tab content -->
-        <!-- end modal tab -->
-        <button>ok</button>
-      </div>
-    </div>
-    <!-- end The Modal -->
+				<div id="enemy-tab-content" class="tabcontent hide">
+					<h3>Enemy Element</h3>
+					<form>
+						<ul>
+							<li>
+								<label for="name">Name:</label>
+								<input type="text" id="name" name="user_name" />
+							</li>
+							<li>
+								<label for="race">Class:</label>
+								<select>
+									<option value="volvo">Volvo</option>
+									<option value="saab">Saab</option>
+									<option value="mercedes">Mercedes</option>
+									<option value="audi">Audi</option>
+								</select>
+							</li>
+							<li>
+								<label for="race">Race:</label>
+								<select>
+									<option value="volvo">Volvo</option>
+									<option value="saab">Saab</option>
+									<option value="mercedes">Mercedes</option>
+									<option value="audi">Audi</option>
+								</select>
+							</li>
+							<li>
+								<label for="hp">hp:</label>
+								<input type="number" id="hp" name="hp" />
+							</li>
+						</ul>
+					</form>
+				</div>
+				<!-- end Tab content -->
+				<!-- end modal tab -->
+				<button>ok</button>
+			</div>
+		</div>
+		<!-- end The Modal -->
 
-    <script src="modal.js"></script>
-    <script src="data.js"></script>
-    <script src="helpers.js"></script>
-    <script src="script.js"></script>
-  </body>
+		<script src="modal.js"></script>
+		<script src="data.js"></script>
+		<script src="helpers.js"></script>
+		<script src="script.js"></script>
+	</body>
 </html>

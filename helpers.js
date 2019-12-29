@@ -1,134 +1,187 @@
 let helperModule = (function() {
-  function createElementWithCSSClass(elementTag, cssClassName) {
-    let element = document.createElement(elementTag);
-    element.classList.add(cssClassName);
-    return element;
-  }
+	function capitalize(word) {
+		if (typeof word !== "string") return "";
+		return word.charAt(0).toUpperCase() + word.slice(1);
+	}
 
-  function createElementWithText(elementTag, text, cssClassName) {
-    let element;
+	function createElementWithCSSClass(elementTag, cssClassName) {
+		let element = document.createElement(elementTag);
+		element.classList.add(cssClassName);
+		return element;
+	}
 
-    if (cssClassName) {
-      element = createElementWithCSSClass(elementTag, cssClassName);
-    } else {
-      element = document.createElement(elementTag);
-    }
+	function createElementWithText(elementTag, text, cssClassName) {
+		let element;
 
-    let textNode = document.createTextNode(text);
-    element.appendChild(textNode);
-    return element;
-  }
+		if (cssClassName) {
+			element = createElementWithCSSClass(elementTag, cssClassName);
+		} else {
+			element = document.createElement(elementTag);
+		}
 
-  function appendChildren(element, childrens) {
-    childrens.forEach(function(child) {
-      element.appendChild(child);
-    });
+		let textNode = document.createTextNode(text);
+		element.appendChild(textNode);
+		return element;
+	}
 
-    return element;
-  }
+	function appendChildren(element, childrens) {
+		childrens.forEach(function(child) {
+			element.appendChild(child);
+		});
 
-  function characterContainerElement(character, index) {
-    const { name, avatar, level, race, classType } = character;
+		return element;
+	}
 
-    let characterContainerElement = createElementWithCSSClass(
-      "div",
-      "character-container"
-    );
+	function templateSelectOptions(options) {
+		const selectElement = document.createElement("select");
 
-    let charElements = [
-      creasteCharacterAvatarElement(character.avatar),
-      createCharacterDetailsElement(name, level, race, classType),
-      createCharacterInitElement(index)
-    ];
+		options.forEach(function(item) {
+			const optionElement = createElementWithText("option", item);
+			optionElement.value = item;
+			selectElement.appendChild(optionElement);
+		});
+		return selectElement;
+	}
 
-    let characterElement = createElementWithCSSClass("li", "character");
-    characterElement.appendChild(
-      appendChildren(characterContainerElement, charElements)
-    );
+	function templateAddCharacterForm(config) {
+		const formElement = document.createElement("form");
+		const ulElement = document.createElement("ul");
 
-    return characterElement;
-  }
+		config.forEach(function(item) {
+			const liElement = document.createElement("li");
+			const labelElement = document.createElement("label");
+			labelElement.for = item.name;
+			const capitalizeName = capitalize(item.name);
+			const labelText = document.createTextNode(`${capitalizeName}:`);
+			labelElement.appendChild(labelText);
+			liElement.appendChild(labelElement);
 
-  function createSelectionElement(list) {
-    let selectionElement = document.createElement("select");
+			let formElement;
 
-    list.forEach(function(item) {
-      let optionElement = createElementWithText("option", item);
-      optionElement.value = item;
-      selectionElement.appendChild(optionElement);
-    });
+			if (item.element === "input") {
+				formElement = document.createElement("input");
+				formElement.type = item.type;
+				formElement.name = item.name;
+			}
 
-    return selectionElement;
-  }
+			if (item.element === "select") {
+				formElement = templateSelectOptions(DND_DB[item.type]);
+			}
 
-  function creasteCharacterAvatarElement(imgSrc) {
-    let avatarContainer = createElementWithCSSClass("div", "character-avatar");
+			liElement.appendChild(formElement);
+			ulElement.appendChild(liElement);
+		});
 
-    let imgElement = document.createElement("img");
-    imgElement.src = imgSrc;
+		formElement.appendChild(ulElement);
+		return formElement;
+	}
 
-    avatarContainer.appendChild(imgElement);
-    return avatarContainer;
-  }
+	function characterContainerElement(character, index) {
+		const { name, avatar, level, race, classType } = character;
 
-  function createCharacterDetailsElement(name, level, race, classType) {
-    // 1. SETUP
-    let characterDetailsElemet = createElementWithCSSClass(
-      "div",
-      "character-details"
-    );
-    let nameElement = createElementWithText("p", name);
-    let subTitleText = `Lvl ${level} | ${race} | ${classType}`;
-    let subTitleElement = createElementWithText("p", subTitleText);
+		let characterContainerElement = createElementWithCSSClass(
+			"div",
+			"character-container"
+		);
 
-    // 2. MOUNT
-    return appendChildren(characterDetailsElemet, [
-      nameElement,
-      subTitleElement
-    ]);
-  }
+		let charElements = [
+			creasteCharacterAvatarElement(character.avatar),
+			createCharacterDetailsElement(name, level, race, classType),
+			createCharacterInitElement(index)
+		];
 
-  function createCharacterInitElement(index) {
-    // 1. SETUP
-    // Create main container
-    let characterInitElement = createElementWithCSSClass(
-      "div",
-      "character-init"
-    );
+		let characterElement = createElementWithCSSClass("li", "character");
+		characterElement.appendChild(
+			appendChildren(characterContainerElement, charElements)
+		);
 
-    // Create sub container
-    let initContainerElement = createElementWithCSSClass(
-      "div",
-      "init-container"
-    );
+		return characterElement;
+	}
 
-    // Create title
-    let titleElement = createElementWithText("h5", "initiative");
-    // Create init value and input
-    let initValueElement = createElementWithText(
-      "p",
-      "0",
-      "initiative-counter"
-    );
-    initValueElement.dataset.indexNumber = index;
+	function createSelectionElement(list) {
+		let selectionElement = document.createElement("select");
 
-    let initInputElement = createElementWithCSSClass("input", "hide");
-    initInputElement.classList.add("initiative-input");
-    initInputElement.type = "text";
+		list.forEach(function(item) {
+			let optionElement = createElementWithText("option", item);
+			optionElement.value = item;
+			selectionElement.appendChild(optionElement);
+		});
 
-    // 2. MOUNT
-    let mountedInitContainerElement = appendChildren(initContainerElement, [
-      titleElement,
-      initValueElement,
-      initInputElement
-    ]);
-    characterInitElement.appendChild(mountedInitContainerElement);
+		return selectionElement;
+	}
 
-    return characterInitElement;
-  }
+	function creasteCharacterAvatarElement(imgSrc) {
+		let avatarContainer = createElementWithCSSClass(
+			"div",
+			"character-avatar"
+		);
 
-  return {
-    characterContainerElement: characterContainerElement,
-    createSelectionElement: createSelectionElement
-  };
+		let imgElement = document.createElement("img");
+		imgElement.src = imgSrc;
+
+		avatarContainer.appendChild(imgElement);
+		return avatarContainer;
+	}
+
+	function createCharacterDetailsElement(name, level, race, classType) {
+		// 1. SETUP
+		let characterDetailsElemet = createElementWithCSSClass(
+			"div",
+			"character-details"
+		);
+		let nameElement = createElementWithText("p", name);
+		let subTitleText = `Lvl ${level} | ${race} | ${classType}`;
+		let subTitleElement = createElementWithText("p", subTitleText);
+
+		// 2. MOUNT
+		return appendChildren(characterDetailsElemet, [
+			nameElement,
+			subTitleElement
+		]);
+	}
+
+	function createCharacterInitElement(index) {
+		// 1. SETUP
+		// Create main container
+		let characterInitElement = createElementWithCSSClass(
+			"div",
+			"character-init"
+		);
+
+		// Create sub container
+		let initContainerElement = createElementWithCSSClass(
+			"div",
+			"init-container"
+		);
+
+		// Create title
+		let titleElement = createElementWithText("h5", "initiative");
+		// Create init value and input
+		let initValueElement = createElementWithText(
+			"p",
+			"0",
+			"initiative-counter"
+		);
+		initValueElement.dataset.indexNumber = index;
+
+		let initInputElement = createElementWithCSSClass("input", "hide");
+		initInputElement.classList.add("initiative-input");
+		initInputElement.type = "text";
+
+		// 2. MOUNT
+		let mountedInitContainerElement = appendChildren(initContainerElement, [
+			titleElement,
+			initValueElement,
+			initInputElement
+		]);
+		characterInitElement.appendChild(mountedInitContainerElement);
+
+		return characterInitElement;
+	}
+
+	return {
+		characterContainerElement: characterContainerElement,
+		createSelectionElement: createSelectionElement,
+		templateAddCharacterForm: templateAddCharacterForm
+	};
 })();
