@@ -1,27 +1,33 @@
 function setCharacter(character, characterType) {
-	// construct new character object to inset into the characters.party array
+	// construct new character and add into DB
 	if (characterType === 'party') {
-		characters.party.push({
-			...character,
-			avatar: 'https://via.placeholder.com/50',
-			isEnemy: false,
-			damageDone: 0,
-			initiative: 0
-		});
+		comunications.addCharacter(
+			{
+				...character,
+				avatar: 'https://via.placeholder.com/50',
+				isEnemy: false,
+				damageDone: 0,
+				initiative: 0
+			},
+			characterType
+		);
 	}
 
-	// construct new character object to inset into the characters.party array
+	// construct new character and add into DB
 	if (characterType === 'enemies') {
-		characters.enemies.push({
-			...character,
-			avatar: 'https://via.placeholder.com/50',
-			level: 1,
-			isEnemy: true,
-			classType: 'undead',
-			damageTaken: 0,
-			possibleAC: 0,
-			iniciative: 0
-		});
+		comunications.addCharacter(
+			{
+				...character,
+				avatar: 'https://via.placeholder.com/50',
+				level: 1,
+				isEnemy: true,
+				classType: 'undead',
+				damageTaken: 0,
+				possibleAC: 0,
+				iniciative: 0
+			},
+			characterType
+		);
 	}
 
 	// re-render UL list
@@ -36,6 +42,10 @@ function showTemplateCharacterList(characterType) {
 	let uListElement = document.querySelector(cssClassName);
 	// clean previous state
 	uListElement.innerHTML = '';
+
+	// get current characters from DB
+	const characters = comunications.getCharacters();
+
 	// generate new list elements from characters.party or characters.enemies
 	characters[characterType].forEach(function(character, index) {
 		uListElement.appendChild(helperModule.characterContainerElement(character, index));

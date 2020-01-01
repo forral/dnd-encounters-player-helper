@@ -104,6 +104,8 @@ let characters = {
 	]
 };
 
+localStorage.setItem('characters', JSON.stringify(characters));
+
 const CONFIG = {
 	// Configurations to create HTML elements for the form
 	FORMS: {
