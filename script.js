@@ -1,32 +1,44 @@
 function setCharacter(character, characterType) {
+	// construct new character object to inset into the characters.party array
 	if (characterType === 'party') {
-		PARTY.push({
+		characters.party.push({
 			...character,
 			avatar: 'https://via.placeholder.com/50',
 			isEnemy: false,
 			damageDone: 0,
 			initiative: 0
 		});
-
-		let partyUListElement = document.querySelector('.party-list');
-		partyUListElement.innerHTML = '';
-		addPartyList();
 	}
+
+	// construct new character object to inset into the characters.party array
+	if (characterType === 'enemies') {
+		characters.enemies.push({
+			...character,
+			avatar: 'https://via.placeholder.com/50',
+			level: 1,
+			isEnemy: true,
+			classType: 'undead',
+			damageTaken: 0,
+			possibleAC: 0,
+			iniciative: 0
+		});
+	}
+
+	// re-render UL list
+	showTemplateCharacterList(characterType);
+	closeModal();
 }
 
-function addPartyList() {
-	let partyUListElement = document.querySelector('.party-list');
-
-	PARTY.forEach(function(character, index) {
-		partyUListElement.appendChild(helperModule.characterContainerElement(character, index));
-	});
-}
-
-function addEnemyList() {
-	let enemyUListElement = document.querySelector('.enemies-list');
-
-	ENEMIES.forEach(function(enemies, index) {
-		enemyUListElement.appendChild(helperModule.characterContainerElement(enemies, index));
+function showTemplateCharacterList(characterType) {
+	// construct the css class for enemies or party list
+	const cssClassName = `.${characterType}-list`;
+	// get the specific HTML UL element for enemies or party
+	let uListElement = document.querySelector(cssClassName);
+	// clean previous state
+	uListElement.innerHTML = '';
+	// generate new list elements from characters.party or characters.enemies
+	characters[characterType].forEach(function(character, index) {
+		uListElement.appendChild(helperModule.characterContainerElement(character, index));
 	});
 }
 
@@ -57,16 +69,34 @@ function toggleInitiative(element, array) {
 	array[spanElement.dataset.indexNumber].initiative = inputValue;
 }
 
-function addPartyForm() {
-	const modalContentElement = document.querySelector('#party-tab-content');
-	const form = helperModule.templateAddCharacterForm(FORM_CONFIG_PARTY, 'party');
+function showTemplateForm(characterType) {
+	// Build CSS ID name
+	const cssIdName = `#${characterType}-tab-content`;
+	// get HTML specific modal element by ID
+	const modalContentElement = document.querySelector(cssIdName);
+	// build specific character form from template
+	const form = helperModule.templateAddCharacterForm(CONFIG.FORMS[characterType], characterType);
+	// show on HTML
 	modalContentElement.appendChild(form);
 }
 
-function addEnemyForm() {
-	const modalContentElement = document.querySelector('#enemy-tab-content');
-	const form = helperModule.templateAddCharacterForm(FORM_CONFIG_ENEMIES, 'enemy');
-	modalContentElement.appendChild(form);
+function buildCharacterFromFormValues(form) {
+	// get elements from form
+	const formElements = [...form.elements];
+
+	// build chartacter object from form values
+	return formElements.reduce(function(accumulator, currentElement) {
+		// don't collect information about buttons on the form
+		if (currentElement.type === 'button') return accumulator;
+
+		if (currentElement.value === '') {
+			accumulator[currentElement.name] = currentElement.value;
+			return accumulator;
+		}
+
+		accumulator[currentElement.previousElementSibling.for] = currentElement.value;
+		return accumulator;
+	}, {});
 }
 
 function handleEventListeners() {
@@ -88,14 +118,15 @@ function handleEventListeners() {
 
 	partyListContainer.addEventListener('keypress', function(event) {
 		if (event.target.className !== 'initiative-input') return;
-		toggleInitiative(event, PARTY);
+		toggleInitiative(event, characters.party);
 	});
 
 	enemyListContainer.addEventListener('keypress', function(event) {
 		if (event.target.className !== 'initiative-input') return;
-		toggleInitiative(event, ENEMIES);
+		toggleInitiative(event, characters.enemies);
 	});
 
+	// Modal TAB buttons
 	tablinks.forEach(function(element) {
 		element.addEventListener('click', function(event) {
 			tablinks.forEach(function(element) {
@@ -103,7 +134,7 @@ function handleEventListeners() {
 			});
 
 			let tabPartyContentElement = document.querySelector('#party-tab-content');
-			let tabEnemyContentElement = document.querySelector('#enemy-tab-content');
+			let tabEnemyContentElement = document.querySelector('#enemies-tab-content');
 
 			if (event.target.dataset.title === 'party') {
 				tabPartyContentElement.classList.replace('hide', 'show');
@@ -121,33 +152,20 @@ function handleEventListeners() {
 
 	formButtons.forEach(function(button) {
 		button.addEventListener('click', function(event) {
-			if (event.target.dataset.characterType === 'party') {
-				const formElements = [...event.target.form.elements];
-
-				const newCharacter = formElements.reduce(function(accumulator, currentElement) {
-					if (currentElement.type === 'button') return accumulator;
-
-					if (currentElement.value === '') {
-						accumulator[currentElement.name] = currentElement.value;
-						return accumulator;
-					}
-
-					accumulator[currentElement.previousElementSibling.for] = currentElement.value;
-					return accumulator;
-				}, {});
-
-				setCharacter(newCharacter, 'party');
-			}
-
-			if (event.target.dataset.characterType === 'enemy') {
-				console.log(event.target.form.elements);
-			}
+			// is it PARTY or ENEMY character?
+			const characterType = event.target.dataset.characterType;
+			// build new character
+			const newCharacter = buildCharacterFromFormValues(event.target.form);
+			// add to character list
+			setCharacter(newCharacter, characterType);
+			// reset form fileds values
+			event.target.form.reset();
 		});
 	});
 }
 
-addPartyList();
-addEnemyList();
-addPartyForm();
-addEnemyForm();
+showTemplateCharacterList('enemies');
+showTemplateCharacterList('party');
+showTemplateForm('enemies');
+showTemplateForm('party');
 handleEventListeners();

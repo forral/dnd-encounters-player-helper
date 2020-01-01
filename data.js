@@ -1,122 +1,125 @@
-let PARTY = [
-	{
-		name: 'Fixian Wunded',
-		avatar: 'https://via.placeholder.com/50',
-		level: 2,
-		isEnemy: false,
-		race: 'Human',
-		classType: 'Cleric / Life Domain',
-		hp: 10,
-		damageDone: 0,
-		initiative: 0
-	},
-	{
-		name: 'Fixian Wunded',
-		avatar: 'https://via.placeholder.com/50',
-		level: 2,
-		isEnemy: false,
-		race: 'Human',
-		classType: 'Cleric / Life Domain',
-		hp: 10,
-		damageDone: 0,
-		initiative: 0
-	},
-	{
-		name: 'Fixian Wunded',
-		avatar: 'https://via.placeholder.com/50',
-		level: 2,
-		isEnemy: false,
-		race: 'Human',
-		classType: 'Cleric / Life Domain',
-		hp: 10,
-		damageDone: 0,
-		initiative: 0
-	},
-	{
-		name: 'Fixian Wunded',
-		avatar: 'https://via.placeholder.com/50',
-		level: 2,
-		isEnemy: false,
-		race: 'Human',
-		classType: 'Cleric / Life Domain',
-		hp: 10,
-		damageDone: 0,
-		initiative: 0
-	},
-	{
-		name: 'Fixian Wunded',
-		avatar: 'https://via.placeholder.com/50',
-		level: 2,
-		isEnemy: false,
-		race: 'Human',
-		classType: 'Cleric / Life Domain',
-		hp: 10,
-		damageDone: 0,
-		initiative: 0
+let characters = {
+	party: [
+		{
+			name: 'Fixian Wunded',
+			avatar: 'https://via.placeholder.com/50',
+			level: 2,
+			isEnemy: false,
+			race: 'Human',
+			classType: 'Cleric / Life Domain',
+			hp: 10,
+			damageDone: 0,
+			initiative: 0
+		},
+		{
+			name: 'Fixian Wunded',
+			avatar: 'https://via.placeholder.com/50',
+			level: 2,
+			isEnemy: false,
+			race: 'Human',
+			classType: 'Cleric / Life Domain',
+			hp: 10,
+			damageDone: 0,
+			initiative: 0
+		},
+		{
+			name: 'Fixian Wunded',
+			avatar: 'https://via.placeholder.com/50',
+			level: 2,
+			isEnemy: false,
+			race: 'Human',
+			classType: 'Cleric / Life Domain',
+			hp: 10,
+			damageDone: 0,
+			initiative: 0
+		},
+		{
+			name: 'Fixian Wunded',
+			avatar: 'https://via.placeholder.com/50',
+			level: 2,
+			isEnemy: false,
+			race: 'Human',
+			classType: 'Cleric / Life Domain',
+			hp: 10,
+			damageDone: 0,
+			initiative: 0
+		},
+		{
+			name: 'Fixian Wunded',
+			avatar: 'https://via.placeholder.com/50',
+			level: 2,
+			isEnemy: false,
+			race: 'Human',
+			classType: 'Cleric / Life Domain',
+			hp: 10,
+			damageDone: 0,
+			initiative: 0
+		}
+	],
+	enemies: [
+		{
+			name: 'cenas',
+			avatar: 'https://via.placeholder.com/50',
+			isEnemy: true,
+			race: 'goblin',
+			level: 1,
+			classType: 'undead',
+			damageTaken: 0,
+			possibleAC: 0,
+			iniciative: 0
+		},
+		{
+			name: 'cenas',
+			avatar: 'https://via.placeholder.com/50',
+			isEnemy: true,
+			race: 'goblin',
+			level: 1,
+			classType: 'undead',
+			damageTaken: 0,
+			possibleAC: 0,
+			iniciative: 0
+		},
+		{
+			name: 'cenas',
+			avatar: 'https://via.placeholder.com/50',
+			isEnemy: true,
+			race: 'goblin',
+			level: 1,
+			classType: 'undead',
+			damageTaken: 0,
+			possibleAC: 0,
+			iniciative: 0
+		},
+		{
+			name: 'cenas',
+			avatar: 'https://via.placeholder.com/50',
+			isEnemy: true,
+			race: 'goblin',
+			level: 1,
+			classType: 'undead',
+			damageTaken: 0,
+			possibleAC: 0,
+			iniciative: 0
+		}
+	]
+};
+
+const CONFIG = {
+	// Configurations to create HTML elements for the form
+	FORMS: {
+		party: [
+			{ name: 'name', element: 'input', type: 'text' },
+			{ name: 'classType', element: 'select', type: 'classes' },
+			{ name: 'race', element: 'select', type: 'races' },
+			{ name: 'hp', element: 'input', type: 'number' },
+			{ name: 'level', element: 'input', type: 'number' }
+		],
+		enemies: [
+			{ name: 'name', element: 'input', type: 'text' },
+			{ name: 'race', element: 'select', type: 'monsters' }
+		]
 	}
-];
-
-let ENEMIES = [
-	{
-		name: 'cenas',
-		avatar: 'https://via.placeholder.com/50',
-		isEnemy: true,
-		race: 'goblin',
-		level: 1,
-		classType: 'undead',
-		damageTaken: 0,
-		possibleAC: 0,
-		iniciative: 0
-	},
-	{
-		name: 'cenas',
-		avatar: 'https://via.placeholder.com/50',
-		isEnemy: true,
-		race: 'goblin',
-		level: 1,
-		classType: 'undead',
-		damageTaken: 0,
-		possibleAC: 0,
-		iniciative: 0
-	},
-	{
-		name: 'cenas',
-		avatar: 'https://via.placeholder.com/50',
-		isEnemy: true,
-		race: 'goblin',
-		level: 1,
-		classType: 'undead',
-		damageTaken: 0,
-		possibleAC: 0,
-		iniciative: 0
-	},
-	{
-		name: 'cenas',
-		avatar: 'https://via.placeholder.com/50',
-		isEnemy: true,
-		race: 'goblin',
-		level: 1,
-		classType: 'undead',
-		damageTaken: 0,
-		possibleAC: 0,
-		iniciative: 0
-	}
-];
-
-// Config to create HTML elements for the form
-const FORM_CONFIG_PARTY = [
-	{ name: 'name', element: 'input', type: 'text' },
-	{ name: 'classType', element: 'select', type: 'classes' },
-	{ name: 'race', element: 'select', type: 'races' },
-	{ name: 'hp', element: 'input', type: 'number' },
-	{ name: 'level', element: 'input', type: 'number' }
-];
-
-// Config to create HTML elements for the form
-const FORM_CONFIG_ENEMIES = [
-	{ name: 'name', element: 'input', type: 'text' },
-	{ name: 'monster', element: 'select', type: 'monsters' }
-];
+};
 
 const DND_DB = {
 	races: [
