@@ -1,7 +1,7 @@
 let characters = {
 	party: [
 		{
-			id: 1,
+			id: '1',
 			name: 'Fixian Wunded',
 			avatar: 'https://via.placeholder.com/50',
 			level: 2,
@@ -13,7 +13,7 @@ let characters = {
 			initiative: 0
 		},
 		{
-			id: 2,
+			id: '2',
 			name: 'Fixian Wunded',
 			avatar: 'https://via.placeholder.com/50',
 			level: 2,
@@ -25,7 +25,7 @@ let characters = {
 			initiative: 0
 		},
 		{
-			id: 3,
+			id: '3',
 			name: 'Fixian Wunded',
 			avatar: 'https://via.placeholder.com/50',
 			level: 2,
@@ -37,7 +37,7 @@ let characters = {
 			initiative: 0
 		},
 		{
-			id: 4,
+			id: '4',
 			name: 'Fixian Wunded',
 			avatar: 'https://via.placeholder.com/50',
 			level: 2,
@@ -49,7 +49,7 @@ let characters = {
 			initiative: 0
 		},
 		{
-			id: 5,
+			id: '5',
 			name: 'Fixian Wunded',
 			avatar: 'https://via.placeholder.com/50',
 			level: 2,
@@ -63,7 +63,7 @@ let characters = {
 	],
 	enemies: [
 		{
-			id: 6,
+			id: '6',
 			name: 'cenas',
 			avatar: 'https://via.placeholder.com/50',
 			isEnemy: true,
@@ -75,7 +75,7 @@ let characters = {
 			initiative: 0
 		},
 		{
-			id: 7,
+			id: '7',
 			name: 'cenas',
 			avatar: 'https://via.placeholder.com/50',
 			isEnemy: true,
@@ -87,7 +87,7 @@ let characters = {
 			initiative: 0
 		},
 		{
-			id: 8,
+			id: '8',
 			name: 'cenas',
 			avatar: 'https://via.placeholder.com/50',
 			isEnemy: true,
@@ -99,7 +99,7 @@ let characters = {
 			initiative: 0
 		},
 		{
-			id: 9,
+			id: '9',
 			name: 'cenas',
 			avatar: 'https://via.placeholder.com/50',
 			isEnemy: true,

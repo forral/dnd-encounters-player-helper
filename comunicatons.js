@@ -11,12 +11,10 @@ const comunications = (function() {
 	}
 
 	function getCharacterById(id, characterType) {
-		const currentId = Number(id);
-
 		let characters = getCharacters();
 		let charactersByType = characters[characterType];
 
-		return charactersByType.find(character => character.id === currentId);
+		return charactersByType.find(character => character.id === id);
 	}
 
 	function updateCharacter(data, characterType) {

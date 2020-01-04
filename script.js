@@ -4,6 +4,7 @@ function setCharacter(character, characterType) {
 		comunications.addCharacter(
 			{
 				...character,
+				id: helperModule.uuid(),
 				avatar: 'https://via.placeholder.com/50',
 				isEnemy: false,
 				damageDone: 0,
@@ -18,13 +19,14 @@ function setCharacter(character, characterType) {
 		comunications.addCharacter(
 			{
 				...character,
+				id: helperModule.uuid(),
 				avatar: 'https://via.placeholder.com/50',
 				level: 1,
 				isEnemy: true,
 				classType: 'undead',
 				damageTaken: 0,
 				possibleAC: 0,
-				iniciative: 0
+				initiative: 0
 			},
 			characterType
 		);
@@ -81,6 +83,7 @@ function toggleInitiative(element, characterType) {
 		spanElement.dataset.indexNumber,
 		characterType
 	);
+
 	currentCharacter.initiative = inputValue;
 
 	comunications.updateCharacter(currentCharacter, characterType);
