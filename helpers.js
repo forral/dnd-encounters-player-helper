@@ -97,15 +97,15 @@ let helperModule = (function() {
 		return formElement;
 	}
 
-	function characterContainerElement(character, index) {
-		const { name, level, race, classType } = character;
+	function characterContainerElement(character) {
+		const { name, level, race, classType, id, avatar, initiative } = character;
 
 		let characterContainerElement = createElementWithCSSClass('div', 'character-container');
 
 		let charElements = [
-			creasteCharacterAvatarElement(character.avatar),
+			createCharacterAvatarElement(avatar),
 			createCharacterDetailsElement(name, level, race, classType),
-			createCharacterInitElement(index)
+			createCharacterInitElement(id, initiative)
 		];
 
 		let characterElement = createElementWithCSSClass('li', 'character');
@@ -126,7 +126,7 @@ let helperModule = (function() {
 		return selectionElement;
 	}
 
-	function creasteCharacterAvatarElement(imgSrc) {
+	function createCharacterAvatarElement(imgSrc) {
 		let avatarContainer = createElementWithCSSClass('div', 'character-avatar');
 
 		let imgElement = document.createElement('img');
@@ -147,7 +147,7 @@ let helperModule = (function() {
 		return appendChildren(characterDetailsElemet, [nameElement, subTitleElement]);
 	}
 
-	function createCharacterInitElement(index) {
+	function createCharacterInitElement(id, initiative) {
 		// 1. SETUP
 		// Create main container
 		let characterInitElement = createElementWithCSSClass('div', 'character-init');
@@ -159,7 +159,8 @@ let helperModule = (function() {
 		let titleElement = createElementWithText('h5', 'initiative');
 		// Create init value and input
 		let initValueElement = createElementWithText('p', '0', 'initiative-counter');
-		initValueElement.dataset.indexNumber = index;
+		initValueElement.dataset.indexNumber = id;
+		initValueElement.textContent = initiative;
 
 		let initInputElement = createElementWithCSSClass('input', 'hide');
 		initInputElement.classList.add('initiative-input');
@@ -179,6 +180,7 @@ let helperModule = (function() {
 	return {
 		characterContainerElement: characterContainerElement,
 		createSelectionElement: createSelectionElement,
-		templateAddCharacterForm: templateAddCharacterForm
+		templateAddCharacterForm: templateAddCharacterForm,
+		uuid: uuid
 	};
 })();

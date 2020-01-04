@@ -40,6 +40,7 @@ function showTemplateCharacterList(characterType) {
 	const cssClassName = `.${characterType}-list`;
 	// get the specific HTML UL element for enemies or party
 	let uListElement = document.querySelector(cssClassName);
+
 	// clean previous state
 	uListElement.innerHTML = '';
 
@@ -47,12 +48,12 @@ function showTemplateCharacterList(characterType) {
 	const characters = comunications.getCharacters();
 
 	// generate new list elements from characters.party or characters.enemies
-	characters[characterType].forEach(function(character, index) {
-		uListElement.appendChild(helperModule.characterContainerElement(character, index));
+	characters[characterType].forEach(function(character) {
+		uListElement.appendChild(helperModule.characterContainerElement(character));
 	});
 }
 
-function toggleInitiative(element, array) {
+function toggleInitiative(element, characterType) {
 	if (element.tagName === 'P') {
 		element.classList.add('hide');
 		element.nextElementSibling.classList.remove('hide');
@@ -76,7 +77,14 @@ function toggleInitiative(element, array) {
 	inputElement.classList.add('hide');
 	spanElement.classList.remove('hide');
 
-	array[spanElement.dataset.indexNumber].initiative = inputValue;
+	let currentCharacter = comunications.getCharacterById(
+		spanElement.dataset.indexNumber,
+		characterType
+	);
+	currentCharacter.initiative = inputValue;
+
+	comunications.updateCharacter(currentCharacter, characterType);
+	showTemplateCharacterList(characterType);
 }
 
 function showTemplateForm(characterType) {
@@ -118,22 +126,22 @@ function handleEventListeners() {
 	// Toggle span to input party list
 	partyListContainer.addEventListener('dblclick', function(event) {
 		if (event.target.className !== 'initiative-counter') return;
-		toggleInitiative(event.target);
+		toggleInitiative(event.target, 'party');
 	});
 
 	enemyListContainer.addEventListener('dblclick', function(event) {
 		if (event.target.className !== 'initiative-counter') return;
-		toggleInitiative(event.target);
+		toggleInitiative(event.target, 'enemies');
 	});
 
 	partyListContainer.addEventListener('keypress', function(event) {
 		if (event.target.className !== 'initiative-input') return;
-		toggleInitiative(event, characters.party);
+		toggleInitiative(event, 'party');
 	});
 
 	enemyListContainer.addEventListener('keypress', function(event) {
 		if (event.target.className !== 'initiative-input') return;
-		toggleInitiative(event, characters.enemies);
+		toggleInitiative(event, 'enemies');
 	});
 
 	// Modal TAB buttons

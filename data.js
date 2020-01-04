@@ -1,6 +1,7 @@
 let characters = {
 	party: [
 		{
+			id: 1,
 			name: 'Fixian Wunded',
 			avatar: 'https://via.placeholder.com/50',
 			level: 2,
@@ -12,6 +13,7 @@ let characters = {
 			initiative: 0
 		},
 		{
+			id: 2,
 			name: 'Fixian Wunded',
 			avatar: 'https://via.placeholder.com/50',
 			level: 2,
@@ -23,6 +25,7 @@ let characters = {
 			initiative: 0
 		},
 		{
+			id: 3,
 			name: 'Fixian Wunded',
 			avatar: 'https://via.placeholder.com/50',
 			level: 2,
@@ -34,6 +37,7 @@ let characters = {
 			initiative: 0
 		},
 		{
+			id: 4,
 			name: 'Fixian Wunded',
 			avatar: 'https://via.placeholder.com/50',
 			level: 2,
@@ -45,6 +49,7 @@ let characters = {
 			initiative: 0
 		},
 		{
+			id: 5,
 			name: 'Fixian Wunded',
 			avatar: 'https://via.placeholder.com/50',
 			level: 2,
@@ -58,6 +63,7 @@ let characters = {
 	],
 	enemies: [
 		{
+			id: 6,
 			name: 'cenas',
 			avatar: 'https://via.placeholder.com/50',
 			isEnemy: true,
@@ -66,9 +72,10 @@ let characters = {
 			classType: 'undead',
 			damageTaken: 0,
 			possibleAC: 0,
-			iniciative: 0
+			initiative: 0
 		},
 		{
+			id: 7,
 			name: 'cenas',
 			avatar: 'https://via.placeholder.com/50',
 			isEnemy: true,
@@ -77,9 +84,10 @@ let characters = {
 			classType: 'undead',
 			damageTaken: 0,
 			possibleAC: 0,
-			iniciative: 0
+			initiative: 0
 		},
 		{
+			id: 8,
 			name: 'cenas',
 			avatar: 'https://via.placeholder.com/50',
 			isEnemy: true,
@@ -88,9 +96,10 @@ let characters = {
 			classType: 'undead',
 			damageTaken: 0,
 			possibleAC: 0,
-			iniciative: 0
+			initiative: 0
 		},
 		{
+			id: 9,
 			name: 'cenas',
 			avatar: 'https://via.placeholder.com/50',
 			isEnemy: true,
@@ -99,7 +108,7 @@ let characters = {
 			classType: 'undead',
 			damageTaken: 0,
 			possibleAC: 0,
-			iniciative: 0
+			initiative: 0
 		}
 	]
 };
