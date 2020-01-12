@@ -10,7 +10,7 @@ let characters = {
 			classType: 'Cleric / Life Domain',
 			hp: 10,
 			damageDone: 0,
-			initiative: 0
+			initiative: '0'
 		},
 		{
 			id: '2',
@@ -22,7 +22,7 @@ let characters = {
 			classType: 'Cleric / Life Domain',
 			hp: 10,
 			damageDone: 0,
-			initiative: 0
+			initiative: '0'
 		},
 		{
 			id: '3',
@@ -34,7 +34,7 @@ let characters = {
 			classType: 'Cleric / Life Domain',
 			hp: 10,
 			damageDone: 0,
-			initiative: 0
+			initiative: '0'
 		},
 		{
 			id: '4',
@@ -46,7 +46,7 @@ let characters = {
 			classType: 'Cleric / Life Domain',
 			hp: 10,
 			damageDone: 0,
-			initiative: 0
+			initiative: '0'
 		},
 		{
 			id: '5',
@@ -58,7 +58,7 @@ let characters = {
 			classType: 'Cleric / Life Domain',
 			hp: 10,
 			damageDone: 0,
-			initiative: 0
+			initiative: '0'
 		}
 	],
 	enemies: [
@@ -72,7 +72,7 @@ let characters = {
 			classType: 'undead',
 			damageTaken: 0,
 			possibleAC: 0,
-			initiative: 0
+			initiative: '0'
 		},
 		{
 			id: '7',
@@ -84,7 +84,7 @@ let characters = {
 			classType: 'undead',
 			damageTaken: 0,
 			possibleAC: 0,
-			initiative: 0
+			initiative: '0'
 		},
 		{
 			id: '8',
@@ -96,7 +96,7 @@ let characters = {
 			classType: 'undead',
 			damageTaken: 0,
 			possibleAC: 0,
-			initiative: 0
+			initiative: '0'
 		},
 		{
 			id: '9',
@@ -108,7 +108,7 @@ let characters = {
 			classType: 'undead',
 			damageTaken: 0,
 			possibleAC: 0,
-			initiative: 0
+			initiative: '0'
 		}
 	]
 };

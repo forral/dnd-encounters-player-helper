@@ -17,6 +17,16 @@ const comunications = (function() {
 		return charactersByType.find(character => character.id === id);
 	}
 
+	function getCharactersSortedByInit() {
+		const characters = getCharacters();
+		const allCharacters = [...characters.party, ...characters.enemies];
+		return allCharacters
+			.sort(function(a, b) {
+				return a.initiative - b.initiative;
+			})
+			.reverse();
+	}
+
 	function updateCharacter(data, characterType) {
 		let characters = getCharacters();
 		let charactersByType = characters[characterType];
@@ -38,6 +48,7 @@ const comunications = (function() {
 		addCharacter: addCharacter,
 		getCharacters: getCharacters,
 		getCharacterById: getCharacterById,
-		updateCharacter: updateCharacter
+		updateCharacter: updateCharacter,
+		getCharactersSortedByInit: getCharactersSortedByInit
 	};
 })();
