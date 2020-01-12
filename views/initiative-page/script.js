@@ -125,6 +125,7 @@ function handleEventListeners() {
 	const enemyListContainer = document.querySelector('.enemies-container');
 	const tablinks = document.querySelectorAll('.tablinks');
 	const formButtons = document.querySelectorAll('.form-button');
+	const confirmButton = document.querySelector('.confirm-btn');
 
 	// Toggle span to input party list
 	partyListContainer.addEventListener('dblclick', function(event) {
@@ -145,6 +146,11 @@ function handleEventListeners() {
 	enemyListContainer.addEventListener('keypress', function(event) {
 		if (event.target.className !== 'initiative-input') return;
 		toggleInitiative(event, 'enemies');
+	});
+
+	confirmButton.addEventListener('click', function(event) {
+		console.log('event', event);
+		window.location = '../encounter-page/encounter-page.html';
 	});
 
 	// Modal TAB buttons
