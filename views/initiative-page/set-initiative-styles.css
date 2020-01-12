@@ -1,134 +1,94 @@
 .hide {
-  display: none;
+	display: none;
 }
 
 .show {
-  display: block;
+	display: block;
 }
 
 .initiative-setup {
-  display: flex;
-  justify-content: space-evenly;
+	display: flex;
+	justify-content: space-evenly;
 }
 
 .initiative-setup ul {
-  list-style: none;
-  padding: 0;
+	list-style: none;
+	padding: 0;
 }
 
 .character {
-  border-bottom: 1px solid lightgrey;
-  padding: 10px;
+	border-bottom: 1px solid lightgrey;
+	padding: 10px;
 }
 
 .character-container {
-  display: flex;
-  justify-content: flex-start;
+	display: flex;
+	justify-content: flex-start;
 }
 
 .character p {
-  margin: 0;
+	margin: 0;
 }
 
 .character-details {
-  margin: 0 10px 0 10px;
+	margin: 0 10px 0 10px;
 }
 
 .character-init {
-  text-align: center;
+	text-align: center;
 }
 
 .init-container {
-  border: 1px solid grey;
-  padding: 5px 10px 5px 10px;
+	border: 1px solid grey;
+	padding: 5px 10px 5px 10px;
 }
 
 .init-container input {
-  width: 25px;
-  height: 25px;
+	width: 25px;
+	height: 25px;
 }
 
 .init-container h5 {
-  padding-bottom: 5px;
+	padding-bottom: 5px;
 }
 
 .init-container p,
 h5 {
-  margin: 0 auto;
+	margin: 0 auto;
 }
-
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-/* END The Modal */
 
 /* Style the tab */
 .tab {
-  overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
+	overflow: hidden;
+	border: 1px solid #ccc;
+	background-color: #f1f1f1;
 }
 
 /* Style the buttons that are used to open the tab content */
 .tab button {
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
+	background-color: inherit;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
 }
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-  background-color: #ddd;
+	background-color: #ddd;
 }
 
 /* Create an active/current tablink class */
 .tab button.active {
-  background-color: #ccc;
+	background-color: #ccc;
 }
 
 /* Style the tab content */
 .tabcontent {
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
+	padding: 6px 12px;
+	border: 1px solid #ccc;
+	border-top: none;
 }
 /* END TAB */
