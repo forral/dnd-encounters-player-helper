@@ -20,11 +20,15 @@ const comunications = (function() {
 	function getCharactersSortedByInit() {
 		const characters = getCharacters();
 		const allCharacters = [...characters.party, ...characters.enemies];
-		return allCharacters
+		const sortedCharacters = allCharacters
 			.sort(function(a, b) {
 				return a.initiative - b.initiative;
 			})
 			.reverse();
+
+		sortedCharacters.push({ isCounter: true, counter: 0 });
+
+		return sortedCharacters;
 	}
 
 	function updateCharacter(data, characterType) {
