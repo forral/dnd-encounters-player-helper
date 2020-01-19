@@ -37,6 +37,7 @@ const encounterTemplates = (function() {
 
 	function encounterList(characters) {
 		const encounterElement = document.createElement('ul');
+		encounterElement.classList.add('encounter-list');
 		let liTemplate = '';
 
 		characters.forEach(character => {

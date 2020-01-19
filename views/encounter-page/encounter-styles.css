@@ -1,0 +1,8 @@
+.encounter-list li {
+	display: flex;
+	justify-content: start;
+}
+
+.encounter-list li p {
+	margin: 0;
+}
