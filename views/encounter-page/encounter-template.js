@@ -37,18 +37,20 @@ const encounterTemplates = (function() {
 
 	function encounterList(characters) {
 		const encounterElement = document.createElement('ul');
-
 		let liTemplate = '';
 
 		characters.forEach(character => {
+			// build Enemy list HTML element
 			if (!character.isCounter && character.isEnemy) {
 				liTemplate = liTemplate + encounterEnemyElement(character);
 			}
 
+			// build Party list HTML element
 			if (!character.isCounter && !character.isEnemy) {
 				liTemplate = liTemplate + encounterPartyElement(character);
 			}
 
+			// build counter list HTML element
 			if (character.isCounter) {
 				liTemplate = liTemplate + encounterCounterElement(character);
 			}
