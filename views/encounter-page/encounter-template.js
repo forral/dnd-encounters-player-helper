@@ -18,7 +18,7 @@ const encounterTemplates = (function() {
 			<li>
 				<div class="character-info">
 					<p>${character.name}</p>
-					<p>${character.class}</p>
+					<p>${character.race}</p>
 				</div>
 				<div class="avatar">
 					<img src="${character.avatar}" alt="${character.name} avatar"/>
@@ -36,22 +36,21 @@ const encounterTemplates = (function() {
 	}
 
 	function encounterList(characters) {
-		debugger;
 		const encounterElement = document.createElement('ul');
 
 		let liTemplate = '';
 
 		characters.forEach(character => {
-			if (character.isCounter) {
-				liTemplate = liTemplate + encounterCounterElement(character);
-			}
-
-			if (character.isEnemy) {
+			if (!character.isCounter && character.isEnemy) {
 				liTemplate = liTemplate + encounterEnemyElement(character);
 			}
 
-			if (!character.isEnemy) {
+			if (!character.isCounter && !character.isEnemy) {
 				liTemplate = liTemplate + encounterPartyElement(character);
+			}
+
+			if (character.isCounter) {
+				liTemplate = liTemplate + encounterCounterElement(character);
 			}
 		});
 

@@ -1,9 +1,10 @@
 const encounter = (function() {
 	function showEncounterList() {
 		const characters = comunications.getCharactersSortedByInit();
-		console.log('characters', characters);
 		const characterListTemplate = encounterTemplates.encounterList(characters);
-		console.log('characterListTemplate', characterListTemplate);
+
+		const listCountainter = document.querySelector('.encounter-list-container');
+		listCountainter.appendChild(characterListTemplate);
 		// render(characterListTemplate, here)
 	}
 
