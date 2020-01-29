@@ -7,7 +7,7 @@ const encounterTemplates = (function() {
 				</div>
 				<div class="character-info">
 					<p>${character.name}</p>
-					<p>${character.class}</p>
+					<p>${character.classType}</p>
 				</div>
 			</li>
 			`;

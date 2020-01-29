@@ -5,6 +5,19 @@ const comunications = (function() {
 		localStorage.setItem('characters', JSON.stringify(characters));
 	}
 
+	function setEncounter(charactersInOrder) {
+		localStorage.setItem('encounter', JSON.stringify(charactersInOrder));
+	}
+
+	function getCurrentEncounterOrder() {
+		let currentOrder = JSON.parse(localStorage.getItem('encounter'));
+		return currentOrder;
+	}
+
+	function updateEncounterOrder(currentOrder) {
+		localStorage.setItem('encounter', JSON.stringify(currentOrder));
+	}
+
 	function getCharacters() {
 		let characters = JSON.parse(localStorage.getItem('characters'));
 		return characters;
@@ -53,6 +66,9 @@ const comunications = (function() {
 		getCharacters: getCharacters,
 		getCharacterById: getCharacterById,
 		updateCharacter: updateCharacter,
-		getCharactersSortedByInit: getCharactersSortedByInit
+		getCharactersSortedByInit: getCharactersSortedByInit,
+		getCurrentEncounterOrder: getCurrentEncounterOrder,
+		updateEncounterOrder: updateEncounterOrder,
+		setEncounter: setEncounter
 	};
 })();
