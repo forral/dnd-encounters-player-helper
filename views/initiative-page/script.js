@@ -1,15 +1,3 @@
-// const initiativePage = (function() {
-// 	function init() {
-// 		console.log('init page connected');
-// 	}
-
-// 	return { init: init };
-// })();
-
-// window.onload = event => {
-// 	initiativePage.init();
-// };
-
 function setCharacter(character, characterType) {
 	// construct new character and add into DB
 	if (characterType === 'party') {
